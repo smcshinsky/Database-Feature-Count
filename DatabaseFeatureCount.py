@@ -20,6 +20,7 @@ for dirpath, dirnames, filenames in arcpy.da.Walk(workspace, datatype='FeatureCl
         fcNameProp = arcpy.Describe(layer)
         featureResult = int(arcpy.GetCount_management(layer).getOutput(0))
         countList.append(featureResult)
+        print (fcNameProp.aliasName + " - " + featureResult)
 
 #**********************Count table rows****************************************
 
@@ -30,6 +31,7 @@ for dirpath, dirnames, filenames in arcpy.da.Walk(workspace, datatype='Table'):
         tableNameProp = arcpy.Describe(table)
         tableResult = int(arcpy.GetCount_management(table).getOutput(0))
         countList.append(tableResult)
+        print (tableNameProp.aliasName + " - " + tableResult)
 
 #************************Sum all records**************************************
 sumFeatures = 0
